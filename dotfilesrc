@@ -1,0 +1,5 @@
+[dotfiles]
+repository = ~/.dotfiles
+ignore = [
+    'README.md',
+    'install.sh']
