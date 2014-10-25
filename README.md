@@ -1,9 +1,9 @@
 # Install
 
 ```bash
-sudo pip install dotfiles
 git clone git@github.com:chase-seibert/dotfiles.git ~/.dotfiles
-dotfiles -R ~/.dotfiles/ --sync
+cd ~/.dotfiles
+./install.sh
 ```
 
 ## Add a new dotfile
