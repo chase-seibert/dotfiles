@@ -22,5 +22,8 @@ elif [[ $platform == 'freebsd' ]]; then
 
 fi
 
+alias dev="ssh cseibert@cseibert.dev.hearsaylabs.com"
+alias fan="cd ~/projects/HearsayLabs/fanmgmt/"
+alias grep="grep -rn --color"
 
 cd ~/projects/HearsayLabs/fanmgmt/

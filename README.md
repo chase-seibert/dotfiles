@@ -11,3 +11,5 @@ cd ~/.dotfiles
 ```bash
 dotfiles --add ~/.vim
 ```
+
+More: https://github.com/jbernard/dotfiles
