@@ -2,12 +2,15 @@ unamestr=`uname`
 
 if [[ $unamestr == 'Linux' ]]; then
 
+    alias ls="ls --color=always"
     if [ -f ~/.git-completion.bash ]; then
           . ~/.git-completion.bash
     fi
 
 elif [[ $unamestr == 'Darwin' ]]; then
 
+    export CLICOLOR=1
+    export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
       . $(brew --prefix)/etc/bash_completion
     fi
