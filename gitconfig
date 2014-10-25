@@ -1,6 +1,8 @@
 [user]
 	email = chase.seibert+github@gmail.com
 	name = Chase Seibert
+[credential]
+    helper = osxkeychain
 [color]
 	ui = true
 [core]
