@@ -1,0 +1,7 @@
+[user]
+	email = chase.seibert+github@gmail.com
+	name = Chase Seibert
+[color]
+	ui = true
+[core]
+	editor = vim

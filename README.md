@@ -9,5 +9,5 @@ cd ~/.dotfiles
 ## Add a new dotfile
 
 ```bash
-dotfiles -R ~/.dotfiles/ --add ~/.vim
+dotfiles --add ~/.vim
 ```
