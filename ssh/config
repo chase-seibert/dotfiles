@@ -1,0 +1,7 @@
+User cseibert
+Host *
+ForwardAgent yes
+Host *.dev.hearsaylabs.com
+    LocalForward 1984 localhost:1984
+    RemoteForward 2224 127.0.0.1:2224
+    RemoteForward 2225 127.0.0.1:2225

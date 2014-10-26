@@ -19,10 +19,11 @@ elif [[ $unamestr == 'Darwin' ]]; then
 
 fi
 
-alias dev="ssh cseibert@cseibert.dev.hearsaylabs.com"
+alias dev="ssh cseibert.dev.hearsaylabs.com"
 alias fan="cd ~/projects/HearsayLabs/fanmgmt/"
 alias grep="grep -rn --color"
 alias tmux="tmux -u"
 
+PATH=$PATH:$HOME/.dotfiles/bin
 PS1='\[\e[33;1m\]\u@\h: \[\e[31m\]\W\[\e[0m\]$ '
 cd ~/projects/HearsayLabs/fanmgmt/

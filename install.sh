@@ -8,5 +8,6 @@ unamestr=`uname`
 if [[ $unamestr == 'Linux' ]]; then
     :
 elif [[ $unamestr == 'Darwin' ]]; then
-    :
+    launchctl load ~/.dotfiles/etc/pbcopy.plist
+    launchctl load ~/.dotfiles/etc/pbpaste.plist
 fi
