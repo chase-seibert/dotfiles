@@ -152,6 +152,7 @@ let g:pymode_lint = 0
 let g:pymode_rope = 1
 let g:pymode_rope_goto_definition_cmd = 'e'  " e, new or vnew
 let g:pymode_rope_lookup_project = 0
+let g:pymode_doc=0
 
 " needed to revert backspace change from OSX +python
 set backspace=indent,eol,start
