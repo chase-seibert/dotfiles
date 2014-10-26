@@ -143,9 +143,9 @@ let NERDTreeIgnore = ['\.pyc$']
 " see: https://github.com/vim-scripts/Python-mode-klen/blob/master/doc/pymode.txt
 let g:pymode_folding = 0
 let g:pymode_syntax_space_errors = 0
-let g:pymode_lint = 0
-"let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'pylint']
-"let g:pymode_lint_ignore="E121,E125,E126,E128,E501,W,E1101,E1103"
+let g:pymode_lint = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_ignore="E121,E125,E126,E128,E501,W,E1101,E1103"
 "let g:pymode_lint_cwindow = 0
 "let g:pymode_lint_signs = 1
 let g:pymode_rope = 1
