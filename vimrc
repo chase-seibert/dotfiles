@@ -120,8 +120,8 @@ let g:ctrlp_regexp = 1
 let g:syntastic_python_checker = "pyflakes"
 
 " map normal paste combo, use the system clipboard for regular yank
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
+"vmap <C-v> c<ESC>"+p
+"imap <C-v> <ESC>"+pa
 set clipboard=unnamedplus
 if has("mac")
     set clipboard=unnamed
@@ -129,7 +129,6 @@ endif
 if has("gui_gtk2")
     set clipboard=unnamedplus
 endif
-cmap <S-Insert>  <C-R>+  " paste into command line w/ shift-insert
 xnoremap p pgvy  " paste doesn't blow away the register
 
 " remember to run :RopeOpenProject in HearsayLabs
@@ -152,7 +151,6 @@ let g:pymode_lint = 0
 let g:pymode_rope = 1
 let g:pymode_rope_goto_definition_cmd = 'e'  " e, new or vnew
 let g:pymode_rope_lookup_project = 0
-let g:pymode_doc=0
 
 " needed to revert backspace change from OSX +python
 set backspace=indent,eol,start
@@ -188,15 +186,15 @@ highlight clear SignColumn
 
 " copy/paste in tmux over ssh
 function! PropagatePasteBufferToOSX()
-  let @n=getreg("*")
+  let @n=getreg("")
   call system('pbcopy-remote', @n)
   echo "done"
 endfunction
 
 function! PopulatePasteBufferFromOSX()
-  let @+ = system('pbpaste-remote')
+  let @" = system('pbpaste-remote')
   echo "done"
 endfunction
 
-nnoremap <leader>6 :call PopulatePasteBufferFromOSX()<cr>
-nnoremap <leader>7 :call PropagatePasteBufferToOSX()<cr>
+nnoremap <leader><up> :call PopulatePasteBufferFromOSX()<cr>
+nnoremap <leader><down> :call PropagatePasteBufferToOSX()<cr>
