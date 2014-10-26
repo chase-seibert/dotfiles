@@ -152,10 +152,23 @@ let g:pymode_rope_goto_definition_cmd = 'e'  " e, new or vnew
 " needed to revert backspace change from OSX +python
 set backspace=indent,eol,start
 
-" opens search results in a window w/ links and highlight the matches
-command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.json --exclude *.pyc --exclude *.po --exclude-dir external --exclude-dir virtualenv . -e <args>' | copen | execute 'silent /<args>'
-" shift-control-* Greps for the word under the cursor
-:nmap <leader>g :Grep <c-r>=expand("<cword>")<cr><cr>
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind :Grep foobar to Ag search
+command -nargs=+ -complete=file -bar Grep silent! grep! <args>|cwindow|redraw!
+
+" bind g to grep word under cursor
+nnoremap <leader>g :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " powerline: https://github.com/Lokaltog/powerline
 "python from powerline.ext.vim import source_plugin; source_plugin()
