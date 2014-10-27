@@ -114,7 +114,7 @@ endif
 
 " for ctrlp
 set wildignore+=*.pyc
-let g:ctrlp_regexp = 1
+let g:ctrlp_regexp = 0
 
 " syntax checking
 let g:syntastic_python_checker = "pyflakes"
@@ -170,8 +170,12 @@ endif
 " bind :Grep foobar to Ag search
 command -nargs=+ -complete=file -bar Grep silent! grep! <args>|cwindow|redraw!
 
-" bind g to grep word under cursor
+" bind leader+g to grep word under cursor
 nnoremap <leader>g :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" bind leader+i to search for a matching python import
+nnoremap <leader>i :!ag --nogroup --nocolor "^(from\|import).*\b<C-R><C-W>\b" \|awk -F: '{print $3}' \|sed 's/^[ ]*//g' \|head --lines 20 \|sort \|uniq <CR>
+" test: datetime
 
 " powerline: https://github.com/Lokaltog/powerline
 "python from powerline.ext.vim import source_plugin; source_plugin()

@@ -21,7 +21,7 @@ fi
 
 alias dev="ssh cseibert.dev.hearsaylabs.com"
 alias fan="cd ~/projects/HearsayLabs/fanmgmt/"
-alias grep="grep -rn --color"
+alias g="grep -rn --color"
 alias tmux="tmux -u"
 
 PATH=$PATH:$HOME/.dotfiles/bin
