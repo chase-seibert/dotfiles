@@ -9,6 +9,9 @@ au! BufWritePost $MYVIMRC source $MYVIMRC
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
+" Remove end of file blank lines
+au BufWritePre * $put _ | $;?\(^\s*$\)\@!?+1,$d
+
 " save buffer when the window losses focus
 au FocusLost * silent! wall
 " au FocusLost * :wa
@@ -115,6 +118,8 @@ endif
 " for ctrlp
 set wildignore+=*.pyc
 let g:ctrlp_regexp = 0
+let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_working_path_mode = 'ra'
 
 " syntax checking
 let g:syntastic_python_checker = "pyflakes"
