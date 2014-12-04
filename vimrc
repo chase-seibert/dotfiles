@@ -10,7 +10,7 @@ au! BufWritePost $MYVIMRC source $MYVIMRC
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Remove end of file blank lines
-au BufWritePre * $put _ | $;?\(^\s*$\)\@!?+1,$d
+"au BufWritePre * $put _ | $;?\(^\s*$\)\@!?+1,$d
 
 " save buffer when the window losses focus
 au FocusLost * silent! wall
