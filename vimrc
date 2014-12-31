@@ -156,6 +156,10 @@ let g:pymode_lint_ignore="E121,E125,E126,E128,E501,W,E1101,E1103"
 let g:pymode_rope = 1
 let g:pymode_rope_goto_definition_cmd = 'e'  " e, new or vnew
 let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_completion = 0
+let g:pymode_options_max_line_length = 119
+let g:pymode_options_colorcolumn = 1
 
 " needed to revert backspace change from OSX +python
 set backspace=indent,eol,start
