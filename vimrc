@@ -211,3 +211,6 @@ endfunction
 
 nnoremap <leader><up> :call PopulatePasteBufferFromOSX()<cr>
 nnoremap <leader><down> :call PropagatePasteBufferToOSX()<cr>
+
+" ban Ex mode
+nnoremap Q <nop>

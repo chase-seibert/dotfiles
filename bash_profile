@@ -36,4 +36,3 @@ alias ll="ls -l"
 
 PATH=$PATH:$HOME/.dotfiles/bin
 PS1='\[\e[33;1m\]\u@\h: \[\e[31m\]\W\[\e[0m\]$ '
-cd ~/projects/HearsayLabs/fanmgmt/
