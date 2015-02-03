@@ -1,6 +1,7 @@
 sudo pip install dotfiles
 sudo pip install -r vim/requirements.txt
-dotfiles --sync
+cp ~/.dotfiles/dotfilesrc ~
+dotfiles --sync -R ~/.dotfiles --force
 git submodule init
 git submodule update
 
