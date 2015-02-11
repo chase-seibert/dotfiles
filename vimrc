@@ -214,3 +214,10 @@ nnoremap <leader><down> :call PropagatePasteBufferToOSX()<cr>
 
 " ban Ex mode
 nnoremap Q <nop>
+
+:hi CursorLine   cterm=NONE ctermbg=red ctermfg=white guibg=red guifg=white
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
