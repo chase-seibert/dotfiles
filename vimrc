@@ -121,9 +121,6 @@ let g:ctrlp_regexp = 0
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'ra'
 
-" syntax checking
-let g:syntastic_python_checker = "pyflakes"
-
 " map normal paste combo, use the system clipboard for regular yank
 "vmap <C-v> c<ESC>"+p
 "imap <C-v> <ESC>"+pa
@@ -221,3 +218,6 @@ augroup BgHighlight
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
 augroup END
+
+" faster completion
+set complete=.,b,u,]
