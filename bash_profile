@@ -34,5 +34,9 @@ alias g="grep -rn --color"
 alias tmux="tmux -u"
 alias ll="ls -l"
 
+source $HOME/projects/aws-sandbox/bin/aws-completion
+
 PATH=$PATH:$HOME/.dotfiles/bin
+PATH=$PATH:$HOME/projects/aws-sandbox/bin
+PATH=$PATH:/usr/local/heroku/bin
 PS1='\[\e[33;1m\]\u@\h: \[\e[31m\]\W\[\e[0m\]$ '
