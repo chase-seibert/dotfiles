@@ -188,7 +188,7 @@ nnoremap <leader>i :!ag --nogroup --nocolor "^(from\|import).*\b<C-R><C-W>\b" \|
 
 augroup filetypedetect
     au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
-    au BufWritePost *.js :JSHint
+    "au BufWritePost *.js :JSHint
 augroup END
 
 " vim-gitgutter correct background color on gutter
