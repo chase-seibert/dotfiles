@@ -26,13 +26,18 @@ elif [[ $unamestr == 'Darwin' ]]; then
     export PATH=/usr/local/bin:$PATH
     eval "$(rbenv init -)"
 
+    if [ -f ~/.git-completion.bash ]; then
+      . ~/.git-completion.bash
+    fi
+
 fi
 
-alias dev="ssh cseibert.dev.hearsaylabs.com"
-alias fan="cd ~/projects/HearsayLabs/fanmgmt/"
+alias nerd="cd /srv/nerdwallet"
+alias nerd-app="cd /srv/nerdwallet/app-site"
 alias g="grep -rn --color"
 alias tmux="tmux -u"
 alias ll="ls -l"
+alias vm="cd ~/projects/dev-vagrant/vmware; vagrant ssh"
 
 source $HOME/projects/aws-sandbox/bin/aws-completion
 
