@@ -15,4 +15,5 @@ elif [[ $unamestr == 'Darwin' ]]; then
     brew install Caskroom/cask/iterm2
     brew install Caskroom/cask/libreoffice
     brew install tmux
+    brew install bash-completion
 fi

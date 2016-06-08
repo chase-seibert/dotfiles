@@ -33,7 +33,7 @@ elif [[ $unamestr == 'Darwin' ]]; then
 fi
 
 # before aliases so that I can over-ride "g"
-[ -s "/Users/chaseseibert/.scm_breeze/scm_breeze.sh" ] && source "/Users/chaseseibert/.scm_breeze/scm_breeze.sh"
+[ -s "/Users/chase/.scm_breeze/scm_breeze.sh" ] && source "/Users/chase/.scm_breeze/scm_breeze.sh"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 alias nerd="cd /srv/nerdwallet"
@@ -51,7 +51,6 @@ function vmake {
 }
 
 source $HOME/projects/aws-sandbox/bin/aws-completion
-source $HOME/.bash_secrets
 
 PATH=$PATH:$HOME/.dotfiles/bin
 PATH=$PATH:$HOME/projects/aws-sandbox/bin
