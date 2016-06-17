@@ -17,4 +17,5 @@ elif [[ $unamestr == 'Darwin' ]]; then
     brew install tmux
     brew install bash-completion
     brew install autojump
+    brew install hub
 fi
