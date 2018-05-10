@@ -24,7 +24,6 @@ elif [[ $unamestr == 'Darwin' ]]; then
       . $(brew --prefix)/etc/bash_completion
     fi
     export PATH=/usr/local/bin:$PATH
-    eval "$(rbenv init -)"
 
     if [ -f ~/.git-completion.bash ]; then
       . ~/.git-completion.bash
@@ -36,21 +35,14 @@ fi
 [ -s "/Users/chase/.scm_breeze/scm_breeze.sh" ] && source "/Users/chase/.scm_breeze/scm_breeze.sh"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-alias nerd="cd /srv/nerdwallet"
-alias nerd-app="cd /srv/nerdwallet/app-site"
 alias g="grep -rn --color"
 alias tmux="tmux -u"
 alias ll="ls -l"
-alias vm="(cd ~/projects/dev-vagrant/vmware; vagrant ssh)"
-alias stage="ssh -C2qTnN -D 8080 stage-bastion "
-alias server="cat ~/.ssh/config |grep '^Host ' |grep"
 alias hb="hub browse"
 alias git-delete-branches="python ~/.dotfiles/bin/git-delete-merged-branches.py"
 function vmake {
     (cd ~/projects/dev-vagrant/vmware/; vagrant ssh --command "cd $OLDPWD; make $@");
 }
-
-source $HOME/projects/aws-sandbox/bin/aws-completion
 
 PATH=$PATH:$HOME/.dotfiles/bin
 PATH=$PATH:$HOME/projects/aws-sandbox/bin
