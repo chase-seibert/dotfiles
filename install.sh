@@ -18,4 +18,8 @@ elif [[ $unamestr == 'Darwin' ]]; then
     brew install bash-completion
     brew install autojump
     brew install hub
+    brew install caskroom/cask/omnifocus
+    brew install rbenv ruby-build
+    rbenv install 2.5.1
+    rbenv global 2.5.1
 fi
