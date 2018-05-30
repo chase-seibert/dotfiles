@@ -32,7 +32,7 @@ elif [[ $unamestr == 'Darwin' ]]; then
 fi
 
 # before aliases so that I can over-ride "g"
-[ -s "/Users/chase/.scm_breeze/scm_breeze.sh" ] && source "/Users/chase/.scm_breeze/scm_breeze.sh"
+[ -s "/Users/cseibert/.scm_breeze/scm_breeze.sh" ] && source "/Users/cseibert/.scm_breeze/scm_breeze.sh"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 alias g="grep -rn --color"
