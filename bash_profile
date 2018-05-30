@@ -48,7 +48,6 @@ function vmake {
 alias dev="ssh $USER-dbx"
 
 PATH=$PATH:$HOME/.dotfiles/bin
-PATH=$PATH:$HOME/projects/aws-sandbox/bin
 PATH=$PATH:/usr/local/heroku/bin
 PS1='\[\e[33;1m\]\u@\h: \[\e[31m\]\W\[\e[0m\]$ '
 

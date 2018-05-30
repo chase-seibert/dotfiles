@@ -3,13 +3,7 @@
 ```bash
 git clone git@github.com:chase-seibert/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-./common.sh
+./symlinks.sh
+./vim.sh
+./mac.sh  # or ./linux.sh
 ```
-
-## Add a new dotfile
-
-```bash
-dotfiles --add ~/.vim
-```
-
-More: https://github.com/jbernard/dotfiles
