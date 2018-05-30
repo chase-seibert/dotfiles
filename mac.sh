@@ -12,3 +12,6 @@ rbenv install 2.5.1
 rbenv global 2.5.1
 launchctl load ~/.dotfiles/etc/pbcopy.plist
 launchctl load ~/.dotfiles/etc/pbpaste.plist
+git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
+~/.scm_breeze/install.sh
+source ~/.bashrc
