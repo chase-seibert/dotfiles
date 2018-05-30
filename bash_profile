@@ -29,11 +29,12 @@ elif [[ $unamestr == 'Darwin' ]]; then
       . ~/.git-completion.bash
     fi
 
+    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 fi
 
 # before aliases so that I can over-ride "g"
-[ -s "/Users/cseibert/.scm_breeze/scm_breeze.sh" ] && source "/Users/cseibert/.scm_breeze/scm_breeze.sh"
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 alias g="grep -rn --color"
 alias tmux="tmux -u"
