@@ -44,6 +44,9 @@ function vmake {
     (cd ~/projects/dev-vagrant/vmware/; vagrant ssh --command "cd $OLDPWD; make $@");
 }
 
+# dropbox specific
+alias dev="ssh $USER-dbx"
+
 PATH=$PATH:$HOME/.dotfiles/bin
 PATH=$PATH:$HOME/projects/aws-sandbox/bin
 PATH=$PATH:/usr/local/heroku/bin
