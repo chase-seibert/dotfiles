@@ -16,6 +16,8 @@ if [[ $unamestr == 'Linux' ]]; then
         export SSH_AUTH_SOCK=$SOCK
     fi
 
+    source /usr/share/autojump/autojump.bash
+
 elif [[ $unamestr == 'Darwin' ]]; then
 
     export CLICOLOR=1
