@@ -6,4 +6,5 @@ cd ~/.dotfiles
 ./symlinks.sh
 ./vim.sh
 ./mac.sh  # or ./linux.sh
+source ~/.bash_profile
 ```
