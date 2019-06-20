@@ -42,9 +42,13 @@ alias g="grep -rn --color"
 alias tmux="tmux -u"
 alias ll="ls -l"
 alias hb="hub browse"
+alias dashboard="tmux kill-session -t dashboard; ~/.dotfiles/bin/dashboard.sh"
 alias git-delete-branches="python ~/.dotfiles/bin/git-delete-merged-branches.py"
 function vmake {
     (cd ~/projects/dev-vagrant/vmware/; vagrant ssh --command "cd $OLDPWD; make $@");
+}
+function name {
+    echo -ne "\033]0;"$*"\007"
 }
 
 # dropbox specific
