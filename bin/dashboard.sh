@@ -18,6 +18,10 @@ tmux new-window -t $session:2 -n code-review
 tmux select-window -t $session:2
 tmux send-keys "cd /Users/cseibert/projects/differential-comments; ./.virtualenv/bin/python differential-comments.py --days 10 --comment-days 1" C-m
 
+tmux new-window -t $session:3 -n git-stats
+tmux select-window -t $session:3
+tmux send-keys "cd /Users/cseibert/src/server; gf origin; cd /Users/cseibert/projects/git-stats; python git-stats.py --path /Users/cseibert/src/server --days 30 --just-totals" C-m
+
 # return to main vim window
 tmux select-window -t $session:0
 
