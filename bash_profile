@@ -43,6 +43,7 @@ alias tmux="tmux -u"
 alias ll="ls -l"
 alias hb="hub browse"
 alias dashboard="tmux kill-session -t dashboard; ~/.dotfiles/bin/dashboard.sh"
+alias standup="~/.dotfiles/bin/standup.sh"
 alias git-delete-branches="python ~/.dotfiles/bin/git-delete-merged-branches.py"
 function vmake {
     (cd ~/projects/dev-vagrant/vmware/; vagrant ssh --command "cd $OLDPWD; make $@");
