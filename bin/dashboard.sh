@@ -27,7 +27,7 @@ tmux send-keys "~/projects/jira-carry-over/.virtualenv/bin/python ~/projects/jir
 
 tmux new-window -t $session:5 -n code-review
 tmux select-window -t $session:5
-tmux send-keys "cd /Users/cseibert/projects/differential-comments; ./.virtualenv/bin/python differential-comments.py --days 10 --comment-days 1" C-m
+tmux send-keys "cd /Users/cseibert/projects/differential-comments; ./.virtualenv/bin/python differential-comments.py --days 10 --comment-days 1 --team all" C-m
 
 tmux new-window -t $session:6 -n jira-comments
 tmux select-window -t $session:6
