@@ -31,7 +31,7 @@ tmux send-keys "cd /Users/cseibert/projects/differential-comments; ./.virtualenv
 
 tmux new-window -t $session:6 -n jira-comments
 tmux select-window -t $session:6
-tmux send-keys "~/projects/jira-comments/.virtualenv/bin/python ~/projects/jira-comments/jira-comments.py list --board 446 --days 3" C-m
+tmux send-keys "cd ~/projects/jira-comments; source ./.virtualenv/bin/activate; python jira-comments.py list --board 446 --days 3; python jira-comments.py list --board 144 --days 3 --sprint-id 2536; python jira-comments.py list --board 798 --days 3; python jira-comments.py list --board 839 --days 3" C-m
 
 tmux new-window -t $session:7 -n git-stats
 tmux select-window -t $session:7
