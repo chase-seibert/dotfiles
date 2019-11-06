@@ -15,7 +15,7 @@ tmux send-keys "~/projects/jira-carry-over/.virtualenv/bin/python ~/projects/jir
 
 tmux new-window -t $session:2 -n jira-sh-exp
 tmux select-window -t $session:2
-tmux send-keys "~/projects/jira-carry-over/.virtualenv/bin/python ~/projects/jira-carry-over/jira-carry-over.py report --board 144 --since 2019-07-01" C-m
+tmux send-keys "~/projects/jira-carry-over/.virtualenv/bin/python ~/projects/jira-carry-over/jira-carry-over.py report --board 144 --sprint-ids 2402,2536" C-m
 
 tmux new-window -t $session:3 -n jire-sh-found
 tmux select-window -t $session:3
@@ -31,7 +31,7 @@ tmux send-keys "cd /Users/cseibert/projects/differential-comments; ./.virtualenv
 
 tmux new-window -t $session:6 -n jira-comments
 tmux select-window -t $session:6
-tmux send-keys "cd ~/projects/jira-comments; source ./.virtualenv/bin/activate; python jira-comments.py list --board 446 --days 3; python jira-comments.py list --board 144 --days 3 --sprint-id 2536; python jira-comments.py list --board 798 --days 3; python jira-comments.py list --board 839 --days 3" C-m
+tmux send-keys "cd ~/projects/jira-comments; source ./.virtualenv/bin/activate; python jira-comments.py list --board 446 --days 3; python jira-comments.py list --board 144 --days 3 --sprint-id 2536; python jira-comments.py list --board 794 --days 3; python jira-comments.py list --board 839 --days 3" C-m
 
 tmux new-window -t $session:7 -n git-stats
 tmux select-window -t $session:7
