@@ -61,3 +61,4 @@ PS1='\[\e[33;1m\]\u@\h: \[\e[31m\]\W\[\e[0m\]$ '
 
 export PATH="/usr/local/sbin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=/opt/dropbox-override/bin:$PATH
