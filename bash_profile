@@ -63,3 +63,6 @@ export PATH="/usr/local/sbin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=/opt/dropbox-override/bin:$PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+alias start-pg="pg_ctl -D /usr/local/var/postgres start"
+alias stop-pg="pg_ctl -D /usr/local/var/postgres stop"

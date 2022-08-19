@@ -106,15 +106,6 @@ if has("mac")
     set guifont=Menlo\ Regular:h13
 endif
 
-" GUI toolbar disable
-if has("gui_running")
-    set guioptions=egmrti
-    if has("gui_gtk2")
-    elseif
-        set transparency=5
-    endif
-endif
-
 " for ctrlp
 set wildignore+=*.pyc
 let g:ctrlp_regexp = 0
