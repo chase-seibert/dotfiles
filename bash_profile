@@ -1,5 +1,7 @@
 unamestr=`uname`
 
+eval $(/opt/homebrew/bin/brew shellenv)
+
 if [[ $unamestr == 'Linux' ]]; then
 
     alias ls="ls --color=always"
@@ -36,18 +38,12 @@ elif [[ $unamestr == 'Darwin' ]]; then
 fi
 
 # before aliases so that I can over-ride "g"
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+# [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 alias g="grep -rn --color"
 alias tmux="tmux -u"
 alias ll="ls -l"
 alias hb="hub browse"
-alias dashboard="tmux kill-session -t dashboard; ~/.dotfiles/bin/dashboard.sh"
-alias standup="~/.dotfiles/bin/standup.sh"
-alias git-delete-branches="python ~/.dotfiles/bin/git-delete-merged-branches.py"
-function vmake {
-    (cd ~/projects/dev-vagrant/vmware/; vagrant ssh --command "cd $OLDPWD; make $@");
-}
 function name {
     echo -ne "\033]0;"$*"\007"
 }
@@ -64,5 +60,16 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=/opt/dropbox-override/bin:$PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-alias start-pg="pg_ctl -D /usr/local/var/postgres start"
-alias stop-pg="pg_ctl -D /usr/local/var/postgres stop"
+alias start-pg="pg_ctl -D /opt/homebrew/var/postgres start"
+alias stop-pg="pg_ctl -D /opt/homebrew/var/postgres stop"
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+chruby ruby-3.1.2
+export EDITOR=vi
+alias gfo="git fetch origin"
+alias gb="git branch"
+alias ga="git add"
+alias gco="git checkout"
+alias gs="git status"
+alias gd="git diff"
+alias gc="git commit"
+alias gps="git push"
