@@ -73,3 +73,7 @@ alias gs="git status"
 alias gd="git diff"
 alias gc="git commit"
 alias gps="git push"
+alias gf="git fetch"
+alias demo="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --incognito \
+  --user-data-dir=$(mktemp -d)"
