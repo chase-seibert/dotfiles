@@ -59,6 +59,7 @@ export PATH="/usr/local/sbin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=/opt/dropbox-override/bin:$PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
+export PATH="$HOME/.local/bin:$PATH"
 
 alias start-pg="pg_ctl -D /opt/homebrew/var/postgres start"
 alias stop-pg="pg_ctl -D /opt/homebrew/var/postgres stop"
@@ -77,3 +78,4 @@ alias gf="git fetch"
 alias demo="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
   --incognito \
   --user-data-dir=$(mktemp -d)"
+alias python=python3
