@@ -1,8 +1,67 @@
-ln -sf ~/.dotfiles/bashrc ~/.bashrc
-ln -sf ~/.dotfiles/bash_profile ~/.bash_profile
-ln -sf ~/.dotfiles/git-completion.bash ~/.git-completion.bash
-ln -sf ~/.dotfiles/gitconfig ~/.gitconfig
-ln -sf ~/.dotfiles/tmux.conf ~/.tmux.conf
-ln -sf ~/.dotfiles/vimrc ~/.vimrc
-ln -sf ~/.dotfiles/vim ~/.vim
-ln -sf ~/.dotfiles/CLAUDE.local.md ~/.claude/CLAUDE.local.md
+#!/usr/bin/env bash
+set -euo pipefail
+
+dotfiles_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+backup_and_link() {
+  local source_path=$1
+  local destination_path=$2
+  local destination_parent
+  local timestamp
+  local backup_path
+  local counter
+
+  if [ ! -e "$source_path" ]; then
+    echo "Source does not exist: $source_path" >&2
+    exit 66
+  fi
+
+  destination_parent=$(dirname "$destination_path")
+  mkdir -p "$destination_parent"
+
+  if [ -L "$destination_path" ]; then
+    rm "$destination_path"
+  elif [ -e "$destination_path" ]; then
+    timestamp=$(date +%Y%m%d%H%M%S)
+    backup_path="${destination_path}.backup.${timestamp}"
+    counter=1
+
+    while [ -e "$backup_path" ]; do
+      backup_path="${destination_path}.backup.${timestamp}.${counter}"
+      counter=$((counter + 1))
+    done
+
+    mv "$destination_path" "$backup_path"
+    echo "Backed up $destination_path to $backup_path"
+  fi
+
+  ln -sfn "$source_path" "$destination_path"
+}
+
+backup_and_link "$dotfiles_dir/bashrc" "$HOME/.bashrc"
+backup_and_link "$dotfiles_dir/bash_profile" "$HOME/.bash_profile"
+backup_and_link "$dotfiles_dir/git-completion.bash" "$HOME/.git-completion.bash"
+backup_and_link "$dotfiles_dir/gitconfig" "$HOME/.gitconfig"
+backup_and_link "$dotfiles_dir/tmux.conf" "$HOME/.tmux.conf"
+backup_and_link "$dotfiles_dir/vimrc" "$HOME/.vimrc"
+backup_and_link "$dotfiles_dir/vim" "$HOME/.vim"
+backup_and_link "$dotfiles_dir/CLAUDE.local.md" "$HOME/.claude/CLAUDE.local.md"
+
+backup_and_link "$dotfiles_dir/codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
+backup_and_link "$dotfiles_dir/codex/config.toml" "$HOME/.codex/config.toml"
+
+for source_path in "$dotfiles_dir"/codex/agents/*.md; do
+  [ -e "$source_path" ] || continue
+  backup_and_link "$source_path" "$HOME/.codex/agents/$(basename "$source_path")"
+done
+
+for source_path in "$dotfiles_dir"/codex/skills/*; do
+  [ -e "$source_path" ] || continue
+  skill_name=$(basename "$source_path")
+
+  if [[ "$skill_name" = .* ]]; then
+    continue
+  fi
+
+  backup_and_link "$source_path" "$HOME/.codex/skills/$skill_name"
+done

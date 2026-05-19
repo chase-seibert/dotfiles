@@ -1,0 +1,4 @@
+interface:
+  display_name: "AGENTS Troubleshooter"
+  short_description: "Audit AGENTS.md references and conflicts"
+  default_prompt: "Use $agents-md-troubleshooter to audit this AGENTS.md and propose fixes."

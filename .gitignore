@@ -54,3 +54,20 @@ docs/_build/
 target/
 
 ssh/config
+
+# macOS metadata
+.DS_Store
+
+# Codex app state. Keep codex/ as an allowlisted dotfile mirror.
+.codex/
+codex/*
+codex/.*
+!codex/AGENTS.md
+!codex/config.toml
+!codex/agents/
+codex/agents/*
+codex/agents/.*
+!codex/agents/*.md
+!codex/skills/
+codex/skills/.*
+!codex/skills/.gitignore

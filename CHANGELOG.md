@@ -8,6 +8,9 @@ tags, so historical entries are grouped by calendar year.
 ## Unreleased
 
 - Added this changelog scaffold.
+- Added tracked Codex instructions, config, and user-skill symlinking with
+  inline backup-before-link install behavior.
+- Updated the merged-branch cleanup helper for Python 3 compatibility.
 
 ## 2026
 

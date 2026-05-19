@@ -51,9 +51,16 @@ source ~/.bash_profile
 - `vimrc` to `~/.vimrc`
 - `vim/` to `~/.vim`
 - `CLAUDE.local.md` to `~/.claude/CLAUDE.local.md`
+- `codex/AGENTS.md` to `~/.codex/AGENTS.md`
+- `codex/config.toml` to `~/.codex/config.toml`
+- `codex/agents/*.md` to matching files under `~/.codex/agents/`
+- user skill directories in `codex/skills/` to matching directories under
+  `~/.codex/skills/`
 
-The symlink commands use `ln -sf`, so running the script again will refresh the
-links.
+The symlink commands use the `backup_and_link` function in `symlinks.sh`.
+Existing symlinks are replaced, and existing non-symlink files or directories
+are moved to timestamped
+`*.backup.YYYYmmddHHMMSS` paths before new links are created.
 
 ## Repo Map
 
@@ -62,6 +69,7 @@ links.
 - `tmux.conf`: tmux configuration.
 - `vimrc`, `vim/`: Vim configuration, syntax files, colors, and bundled
   plugins.
+- `codex/`: tracked Codex instructions, config, and user skills.
 - `bin/`: personal helper scripts.
 - `etc/`: launchd plists for remote clipboard helpers.
 - `ssh/`: public SSH material only. Do not put private keys here.
@@ -84,25 +92,41 @@ before running on a fresh host.
 Some package names are historical, especially in `mac.sh`, so Homebrew commands
 may need cleanup on a modern machine.
 
+## Codex Files
+
+Codex keeps credentials, sessions, logs, caches, generated media, plugin data,
+and worktrees in `~/.codex`. Do not symlink or commit the whole directory.
+
+This repo tracks only the stable Codex dotfiles:
+
+- `codex/AGENTS.md`: user-level instruction index.
+- `codex/agents/`: instruction domain files referenced by `AGENTS.md`.
+- `codex/config.toml`: exact local Codex configuration.
+- `codex/skills/`: user-managed skills.
+
+Codex-managed system skills live in `~/.codex/skills/.system` and are not
+managed here. `symlinks.sh` automatically links every non-hidden entry in
+`codex/skills/`, so adding a new user skill directory does not require editing
+the installer.
+
 ## Adding A New Dotfile
 
 1. Create or move the source file into `~/.dotfiles`, usually without the
    leading dot.
-2. Add the matching `ln -sf` command to `symlinks.sh`.
-3. Run just the new symlink command, or rerun `./symlinks.sh`.
+2. Add the matching `backup_and_link` call to `symlinks.sh`.
+3. Rerun `./symlinks.sh`.
 4. Update this README if the file changes setup, install, or maintenance steps.
 
 Example:
 
 ```bash
 mv ~/.inputrc ~/.dotfiles/inputrc
-ln -sf ~/.dotfiles/inputrc ~/.inputrc
 ```
 
 Then add this line to `symlinks.sh`:
 
 ```bash
-ln -sf ~/.dotfiles/inputrc ~/.inputrc
+backup_and_link "$dotfiles_dir/inputrc" "$HOME/.inputrc"
 ```
 
 ## Maintenance
