@@ -7,6 +7,8 @@ tags, so historical entries are grouped by calendar year.
 
 ## Unreleased
 
+- Refreshed tracked Codex general engineering instructions from the live
+  user-level Codex configuration.
 - Added this changelog scaffold.
 - Added tracked Codex instructions, config, and user-skill symlinking with
   inline backup-before-link install behavior.
