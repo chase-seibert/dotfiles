@@ -7,6 +7,7 @@ backup_and_link() {
   local source_path=$1
   local destination_path=$2
   local destination_parent
+  local existing_target
   local timestamp
   local backup_path
   local counter
@@ -20,13 +21,19 @@ backup_and_link() {
   mkdir -p "$destination_parent"
 
   if [ -L "$destination_path" ]; then
-    rm "$destination_path"
-  elif [ -e "$destination_path" ]; then
+    existing_target=$(readlink "$destination_path")
+
+    if [ "$existing_target" = "$source_path" ]; then
+      return
+    fi
+  fi
+
+  if [ -L "$destination_path" ] || [ -e "$destination_path" ]; then
     timestamp=$(date +%Y%m%d%H%M%S)
     backup_path="${destination_path}.backup.${timestamp}"
     counter=1
 
-    while [ -e "$backup_path" ]; do
+    while [ -e "$backup_path" ] || [ -L "$backup_path" ]; do
       backup_path="${destination_path}.backup.${timestamp}.${counter}"
       counter=$((counter + 1))
     done
@@ -35,7 +42,7 @@ backup_and_link() {
     echo "Backed up $destination_path to $backup_path"
   fi
 
-  ln -sfn "$source_path" "$destination_path"
+  ln -s "$source_path" "$destination_path"
 }
 
 backup_and_link "$dotfiles_dir/bashrc" "$HOME/.bashrc"

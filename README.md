@@ -58,9 +58,10 @@ source ~/.bash_profile
   `~/.codex/skills/`
 
 The symlink commands use the `backup_and_link` function in `symlinks.sh`.
-Existing symlinks are replaced, and existing non-symlink files or directories
-are moved to timestamped
-`*.backup.YYYYmmddHHMMSS` paths before new links are created.
+Running the script repeatedly is safe: destinations that already point at the
+right source are left alone. Existing files, directories, and symlinks that
+point somewhere else are moved to timestamped `*.backup.YYYYmmddHHMMSS` paths
+before new links are created.
 
 ## Repo Map
 

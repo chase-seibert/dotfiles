@@ -7,6 +7,8 @@ tags, so historical entries are grouped by calendar year.
 
 ## Unreleased
 
+- Made `symlinks.sh` idempotent for destinations that are already linked to
+  the expected source.
 - Refreshed tracked Codex general engineering instructions from the live
   user-level Codex configuration.
 - Added this changelog scaffold.
