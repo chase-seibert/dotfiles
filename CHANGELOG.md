@@ -7,6 +7,8 @@ tags, so historical entries are grouped by calendar year.
 
 ## Unreleased
 
+- Linked the full Codex agents and skills directories into `~/.codex` so new
+  user-managed files automatically appear in this repo.
 - Made `symlinks.sh` idempotent for destinations that are already linked to
   the expected source.
 - Refreshed tracked Codex general engineering instructions from the live

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Draft Vision Strategy"
+  short_description: "Draft crisp strategy and vision docs"
+  default_prompt: "Use $draft-vision-strategy to draft a strategy and vision for this initiative."

@@ -1,5 +1,8 @@
 * Prefer not to install dependencies; try implementing light weight versions instead
 
+## Skill Creation
+- When creating or validating Codex skills, do not assume PyYAML is installed; use lightweight, standard-library validation for the limited frontmatter shape skills need.
+
 ## Commands
 * Create and maintain a Makefile with commands for common operations 
 * Specify in the project local AGENTS.md to prefer these commands 
@@ -14,6 +17,7 @@
 - Keep documentation up to date as you make changes 
 - Create a local README.md if it does not exist for human readers with setup, install
 - Maintain a CHANGELOG.md in root 
+- Do not create an "Unreleased" section in CHANGELOG.md
 - Create a local AGENTS.md if it does not exist
 - Document product requirements in docs/requirements.md in the "As a [type of user],  I want [some goal],  so that [some benefit/value]" format 
 - Document architecture in docs/architecture.md 

@@ -57,18 +57,5 @@ backup_and_link "$dotfiles_dir/CLAUDE.local.md" "$HOME/.claude/CLAUDE.local.md"
 backup_and_link "$dotfiles_dir/codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
 backup_and_link "$dotfiles_dir/codex/config.toml" "$HOME/.codex/config.toml"
 
-for source_path in "$dotfiles_dir"/codex/agents/*.md; do
-  [ -e "$source_path" ] || continue
-  backup_and_link "$source_path" "$HOME/.codex/agents/$(basename "$source_path")"
-done
-
-for source_path in "$dotfiles_dir"/codex/skills/*; do
-  [ -e "$source_path" ] || continue
-  skill_name=$(basename "$source_path")
-
-  if [[ "$skill_name" = .* ]]; then
-    continue
-  fi
-
-  backup_and_link "$source_path" "$HOME/.codex/skills/$skill_name"
-done
+backup_and_link "$dotfiles_dir/codex/agents" "$HOME/.codex/agents"
+backup_and_link "$dotfiles_dir/codex/skills" "$HOME/.codex/skills"

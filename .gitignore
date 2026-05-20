@@ -67,6 +67,7 @@ codex/.*
 !codex/agents/
 codex/agents/*
 codex/agents/.*
+!codex/agents/.gitignore
 !codex/agents/*.md
 !codex/skills/
 codex/skills/.*
