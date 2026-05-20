@@ -1,0 +1,4 @@
+interface:
+  display_name: "Security Risk Review"
+  short_description: "Review secrets, abuse, and cost risks"
+  default_prompt: "Use $security-risk-review to review this change for security, hardcoded secrets, abuse paths, and cost-scaling risk."
