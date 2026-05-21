@@ -9,7 +9,7 @@ web_search = "live"
 notify = ["/Users/cseibert/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-19T16:38:15Z"
+last_updated = "2026-05-20T20:25:36Z"
 source_type = "local"
 source = "/Users/cseibert/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
@@ -54,13 +54,13 @@ enabled = true
 [plugins."build-ios-apps@openai-curated"]
 enabled = true
 
+[plugins."atlassian-rovo@openai-curated"]
+enabled = true
+
 [plugins."browser@openai-bundled"]
 enabled = true
 
 [plugins."chrome@openai-bundled"]
-enabled = true
-
-[plugins."atlassian-rovo@openai-curated"]
 enabled = true
 
 [projects."/Users/cseibert/projects/chase-sidekick"]
@@ -105,6 +105,9 @@ trust_level = "trusted"
 [projects."/Users/cseibert/.dotfiles"]
 trust_level = "trusted"
 
+[projects."/Users/cseibert/Documents/Codex/2026-05-20/is-the-dropbox-mcp-authenticated"]
+trust_level = "trusted"
+
 [sandbox_workspace_write]
 network_access = true
 writable_roots = [
@@ -142,7 +145,7 @@ url = "https://mcp.sentry.dev/mcp"
 
 [mcp_servers.dropbox-mcp]
 url = "https://mcp.dropbox.com/mcp"
-bearer_token_env_var = "sl.u.AGeWWcJWcqFj9L6-jfGrLvM6UreP9N_gpapzcD0gFY9j7HdAvdB4VBK4wCD7uuKO0e68JfWc81Ax3SUT25j2nW8zSQUvfMzQbdF6B20wQZYjeJkqZw4a7-HpApT-GBtkdpO3G_Dfb3pN49P2AM0Jx6_WW73AQPIWnq2WF67Mywmd2aFA85blwqN73lCcGcn-iU6KRWhcjzMiRg3aBJ5Gy0A0uG_R_z7sCm-1rSAO9GsMTFLWPfGgS11RxFeAvISTCfVcO7_Nz0HH3Sxz5MAKn-rVyFEgwncjWTVaN9DM1UDvOd2teMl4o8TPx97BcCAmSMbdzmMGDThz-YUoHn9TbDu83PwMRRLud4ReTtwDItoO-jokSDTNl621eIr1uPk2VkX_oKZfIecE-fVYMCf92mm74BQbUfqvJcFKI7r_86N5nTsdwp-yuAQZ12UjnOBR1f7DVjVurujlk2CD7CMpsCC9RRKbv8yZua-9pZJBhaBlJQQQhnGFBet0QjOkZG1SvjNx4gEFx61_Ubk76l9mfU_2uI409T41H1I00wzhCS3Nx7TxyEwW84jxMljM3Gk0cMEV_Un1SORZi5sx8bp6g5j30Vkv8awnMZXFKcw_V9FeJsdWOsllZQIMMqnies0crmgC2sFoouLDyBeQFzFZl8bMkr__zxQmvjmQopCjCyDo5InLuLzeh28IYwyvd8QknfG_BytnVJW1vIqGzQr_9shNs-bEn_0lcsOKqdEslaxzjXUwZHUJ7k1RAXuQTL9DpMT0Yzn-rTSAqOdXzkgZZTaP5D_AuM1V9KhLB5Df9RcBUCq33ldBLQtOJ9e-foKXRGgqHdKgtdMZyCHLsYYCUnrYhUWow3NuVmfZv6voPrZZxBqOz3CCZx4aK3pBruPBi015I-xxn1Ad2mr4XDqW8AHwtYmras3QUJd8h8-MQbMt7n4aaISqcJ54CmVa-FrY7FuMpHgaQJNbc-TrTgbF515KVa-y6UW1AU1wGE9ZwW7i5Thkwbzm4MDTBYuHWFwcERMcDTKikjmEJ_tSwzvYtZkkXJO5lsI7CRt4J8qI5DVwEfs4D2p2PEb559zgbDaEkqGFhmiLEH-yaRwJBasVCDSLQxK2IntJcLd0MQmZz_lI0jKzKNGfAj-lnXarBHWMDU7OYLu59vL9kfomudoLMykibD9vfI3Uy5qSyi_ZuiKgcMm-x1ZjE4Me3vXCGZmmmtjTZgKw2lok5SCeRuDXDjICgaJI7tyzYxfdXdHpUECRBaIImlDr6JOims4MBvru1_cb92cA9XtLlbS3ViGgeq3OwVeIBHtoxlMy5_yPHvy3TuUWGbQ3Pz0xa5f8LS5ZDyKRBJxxhgwHUBTrvQHJ8_OUNuX5cVpR10YvvsjfnKTIOJxQQKSYQfrAh4-iTaj4re0"
+enabled = true
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4

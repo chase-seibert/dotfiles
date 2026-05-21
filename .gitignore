@@ -69,6 +69,10 @@ codex/agents/*
 codex/agents/.*
 !codex/agents/.gitignore
 !codex/agents/*.md
+!codex/docs/
+codex/docs/*
+codex/docs/.*
+!codex/docs/create-project.md
 !codex/skills/
 codex/skills/.*
 !codex/skills/.gitignore
