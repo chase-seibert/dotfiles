@@ -53,7 +53,7 @@ source ~/.bash_profile
 - `CLAUDE.local.md` to `~/.claude/CLAUDE.local.md`
 - `codex/AGENTS.md` to `~/.codex/AGENTS.md`
 - `codex/config.toml` to `~/.codex/config.toml`
-- `codex/agents/` to `~/.codex/agents`
+- `codex/docs/` to `~/.codex/docs`
 - `codex/skills/` to `~/.codex/skills`
 
 The symlink commands use the `backup_and_link` function in `symlinks.sh`.
@@ -100,12 +100,12 @@ and worktrees in `~/.codex`. Do not symlink or commit the whole directory.
 This repo tracks only the stable Codex dotfiles:
 
 - `codex/AGENTS.md`: user-level instruction index.
-- `codex/agents/`: instruction domain files referenced by `AGENTS.md`.
 - `codex/config.toml`: exact local Codex configuration.
+- `codex/docs/`: instruction domain files and stable Codex documentation.
 - `codex/skills/`: user-managed skills.
 
-`symlinks.sh` links the full `codex/agents/` directory to `~/.codex/agents`, so
-new user agent files created by Codex appear in this repo automatically.
+`symlinks.sh` links the full `codex/docs/` directory to `~/.codex/docs`, so
+new user documentation files created by Codex appear in this repo automatically.
 Codex-managed system skills live in `~/.codex/skills/.system` and are ignored by
 Git. `symlinks.sh` links the full `codex/skills/` directory to
 `~/.codex/skills`, so new user skill directories created by Codex appear in this

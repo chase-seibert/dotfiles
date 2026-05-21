@@ -7,4 +7,4 @@ notarization, packaging, menu bar apps, and desktop-only Swift tooling.
 - Apps should look mac-native; follow Apple's Human Interface Guidelines 
 - Apps should scale font size with Command +/- 
 
-For icons, see `/Users/cseibert/.codex/agents/ios-development.md`.
+For icons, see `/Users/cseibert/.codex/docs/ios-development.md`.

@@ -5,9 +5,13 @@ All notable changes to this dotfiles repo are documented here.
 This file was bootstrapped from `git log` history. The repository has no version
 tags, so historical entries are grouped by calendar year.
 
-## Unreleased
+Do not add a "Unreleashed" section; just keep a running list by year. 
 
-- Linked the full Codex agents and skills directories into `~/.codex` so new
+## 2026
+
+- Moved Codex domain instruction files from `codex/agents` to `codex/docs` and
+  updated the user-level index, symlink setup, and ignore allowlist.
+- Linked the full Codex docs and skills directories into `~/.codex` so new
   user-managed files automatically appear in this repo.
 - Made `symlinks.sh` idempotent for destinations that are already linked to
   the expected source.
@@ -17,9 +21,6 @@ tags, so historical entries are grouped by calendar year.
 - Added tracked Codex instructions, config, and user-skill symlinking with
   inline backup-before-link install behavior.
 - Updated the merged-branch cleanup helper for Python 3 compatibility.
-
-## 2026
-
 - Added `CLAUDE.local.md` and linked it into `~/.claude/CLAUDE.local.md`.
 - Updated shell profile aliases, including a `python` alias.
 

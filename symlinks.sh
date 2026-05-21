@@ -57,5 +57,5 @@ backup_and_link "$dotfiles_dir/CLAUDE.local.md" "$HOME/.claude/CLAUDE.local.md"
 backup_and_link "$dotfiles_dir/codex/AGENTS.md" "$HOME/.codex/AGENTS.md"
 backup_and_link "$dotfiles_dir/codex/config.toml" "$HOME/.codex/config.toml"
 
-backup_and_link "$dotfiles_dir/codex/agents" "$HOME/.codex/agents"
+backup_and_link "$dotfiles_dir/codex/docs" "$HOME/.codex/docs"
 backup_and_link "$dotfiles_dir/codex/skills" "$HOME/.codex/skills"
