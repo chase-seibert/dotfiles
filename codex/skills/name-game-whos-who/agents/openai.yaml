@@ -1,0 +1,4 @@
+interface:
+  display_name: "Name Game: Who’s Who"
+  short_description: "Build offline CSS-only headshot quizzes"
+  default_prompt: "Use $name-game-whos-who to build an offline, CSS-only headshot identity quiz from these photos and names."

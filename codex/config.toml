@@ -1,58 +1,175 @@
-model = "gpt-5.5"
-model_reasoning_effort = "xhigh"
-default_permissions = "sidekick"
-approval_policy = "never"
+model = "vega-alpha"
+model_reasoning_effort = "high"
+notify = [
+    "/Users/cseibert/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient",
+    "turn-ended",
+]
 sandbox_mode = "workspace-write"
+service_tier = "default"
 web_search = "live"
 
+[desktop]
+ambient-suggestions-enabled = true
+appearanceDiffMarkerStyle = "color"
+appearanceTheme = "system"
+codeFontSize = 13
+conversationDetailMode = "STEPS_COMMANDS"
+default-service-tier = "priority"
+dock-icon-preference = "codex-system"
+enabled-reasoning-efforts = [
+    "low",
+    "medium",
+    "high",
+    "xhigh",
+]
+followUpQueueMode = "steer"
+git-branch-prefix = ""
+git-create-pull-request-as-draft = false
+git-pull-request-merge-method = "squash"
+git-show-sidebar-pr-icons = false
+notifications-permissions-enabled = true
+notifications-turn-mode = "always"
+sansFontSize = 16
+computerUseAlwaysHidePictureInPicture = true
 
-notify = ["/Users/cseibert/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+[desktop.appearanceLightChromeTheme]
+accent = "#339cff"
+contrast = 45
+ink = "#1a1c1f"
+opaqueWindows = false
+surface = "#ffffff"
+
+[desktop.appearanceLightChromeTheme.fonts]
+
+[desktop.appearanceLightChromeTheme.semanticColors]
+diffAdded = "#00a240"
+diffRemoved = "#ba2623"
+skill = "#924ff7"
+
+[desktop.open-in-target-preferences]
+global = "fileManager"
+
+[desktop.open-in-target-preferences.perPath]
+"/Users/cseibert/.codex/worktrees/0b0b/chase-sidekick" = "vscode"
+"/Users/cseibert/.codex/worktrees/3a38/chase-sidekick" = "fileManager"
+"/Users/cseibert/.codex/worktrees/43ce/chase-sidekick" = "terminal"
+"/Users/cseibert/.codex/worktrees/6756/chase-sidekick" = "fileManager"
+"/Users/cseibert/.codex/worktrees/e471/chase-sidekick" = "vscode"
+"/Users/cseibert/Documents/cranky librarian proto" = "vscode"
+"/Users/cseibert/Documents/test" = "vscode"
+"/Users/cseibert/Library/CloudStorage/Dropbox-Dropbox/Chase Seibert/Shared Cowork Projects/Core Activity Score" = "terminal"
+"/Users/cseibert/Library/CloudStorage/Dropbox-Personal/Projects/zoom-join" = "terminal"
+"/Users/cseibert/projects/book-recommendations-prototype" = "vscode"
+"/Users/cseibert/projects/calorie-tracker" = "terminal"
+"/Users/cseibert/projects/chase-sidekick" = "fileManager"
+"/Users/cseibert/projects/clipboard-markup" = "vscode"
+"/Users/cseibert/projects/crontab" = "fileManager"
+"/Users/cseibert/projects/devbox" = "terminal"
+"/Users/cseibert/projects/miclog-desktop" = "vscode"
+"/Users/cseibert/projects/remote-agent-ios" = "terminal"
+"/Users/cseibert/projects/sideline-save" = "fileManager"
+"/Users/cseibert/projects/xlt-offsite-ai-video" = "fileManager"
+"/Users/cseibert/projects/devbox/.local-state/spaces-recorder-rserver/electron/spaces_v2/recorder" = "terminal"
+"/Users/cseibert/Library/CloudStorage/Dropbox-Personal/Projects/IP 2026-2027 Name Game : Who's Who" = "fileManager"
+
+[features]
+hooks = true
+js_repl = false
+
+[[hooks.PostToolUse]]
+
+[[hooks.PostToolUse.hooks]]
+command = "/Users/cseibert/.git-ai/bin/git-ai checkpoint codex --hook-input stdin"
+type = "command"
+
+[[hooks.PreToolUse]]
+
+[[hooks.PreToolUse.hooks]]
+command = "/Users/cseibert/.git-ai/bin/git-ai checkpoint codex --hook-input stdin"
+type = "command"
+
+[[hooks.Stop]]
+
+[[hooks.Stop.hooks]]
+command = "/Users/cseibert/.git-ai/bin/git-ai checkpoint codex --hook-input stdin"
+type = "command"
+
+[hooks.state."/Users/cseibert/.codex/config.toml:post_tool_use:0:0"]
+enabled = true
+trusted_hash = "sha256:585bbd320bd984e609a517e7d7f051d7ff500b3e011383cacadf5b805e7530ea"
+
+[hooks.state."/Users/cseibert/.codex/config.toml:pre_tool_use:0:0"]
+enabled = true
+trusted_hash = "sha256:9e3d68598d88d2df348df611436834959d5a3e161acab5b1dd359a78a81307ca"
+
+[hooks.state."/Users/cseibert/.codex/config.toml:stop:0:0"]
+enabled = true
+trusted_hash = "sha256:9ed4fe4cd70b52cdb9b3aa8abcf0828d571c1b1190f1d8e482ed02a9473bb676"
+
+[hooks.state."/Users/cseibert/projects/chase-sidekick/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:f9a252261e5c2de429b424de4ba5bbbab284b4d533f06a25f0d180fec944d222"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-20T20:25:36Z"
 source_type = "local"
 source = "/Users/cseibert/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-05-19T17:16:01Z"
 source_type = "local"
 source = "/Users/cseibert/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
-[plugins."documents@openai-primary-runtime"]
-enabled = true
+[marketplaces.server-codex-plugins]
+last_updated = "2026-08-11T20:17:50Z"
+source_type = "local"
+source = "/Users/cseibert/.codex/marketplaces/dropbox-server-mer"
 
-[plugins."spreadsheets@openai-primary-runtime"]
-enabled = true
+[mcp_servers.Dash]
+enabled = false
+url = "https://mcp.dropbox.com/dash"
 
-[plugins."presentations@openai-primary-runtime"]
+[mcp_servers.dropbox-mcp]
 enabled = true
+url = "https://mcp.dropbox.com/mcp"
 
-[plugins."gmail@openai-curated"]
-enabled = true
+[mcp_servers.dropboxer]
+url = "https://dcd-mcp.dropboxer.net/mcp"
 
-[plugins."slack@openai-curated"]
-enabled = true
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
 
-[plugins."google-calendar@openai-curated"]
-enabled = true
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/cseibert/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/cseibert/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.831.20005"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/cseibert/.codex/plugins/cache/openai-bundled/browser/26.831.20005/scripts/browser-service.mjs"}'
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
 
-[plugins."figma@openai-curated"]
-enabled = true
+[mcp_servers.openaiDeveloperDocs]
+url = "https://developers.openai.com/mcp"
 
-[plugins."computer-use@openai-bundled"]
-enabled = true
+[mcp_servers.pagerduty]
+enabled = false
+url = "https://mcp.pagerduty.com/mcp"
 
-[plugins."github@openai-curated"]
-enabled = true
+[mcp_servers.pagerduty.env_http_headers]
+Authorization = "PAGERDUTY_MCP_AUTHORIZATION"
 
-[plugins."sentry@openai-curated"]
-enabled = true
+[mcp_servers.reclaim]
+oauth_resource = "https://mcp.reclaim.ai"
+url = "https://mcp.reclaim.ai"
 
-[plugins."build-macos-apps@openai-curated"]
-enabled = true
-
-[plugins."build-ios-apps@openai-curated"]
-enabled = true
+[mcp_servers.sentry]
+enabled = false
+url = "https://mcp.sentry.dev/mcp"
 
 [plugins."atlassian-rovo@openai-curated"]
 enabled = true
@@ -60,16 +177,121 @@ enabled = true
 [plugins."browser@openai-bundled"]
 enabled = true
 
+[plugins."build-ios-apps@openai-curated"]
+enabled = true
+
+[plugins."build-macos-apps@openai-curated"]
+enabled = true
+
 [plugins."chrome@openai-bundled"]
 enabled = true
 
-[projects."/Users/cseibert/projects/chase-sidekick"]
+[plugins."documents@openai-primary-runtime"]
+enabled = false
+
+[plugins."figma@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = false
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."sentry@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = false
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."zoom@openai-curated"]
+enabled = true
+
+[plugins."mer@server-codex-plugins"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[projects."/Users/cseibert/.codex"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/.dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/Codex"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/Codex Global"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/Codex/2026-05-19/apple-notes-sycn-stuck-macos"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/Codex/2026-05-19/files-mentioned-by-the-user-analytics"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/Codex/2026-05-20/is-the-dropbox-mcp-authenticated"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/Video Buffer"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/Video Experiments"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/cranky librarian proto"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Documents/test"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Library/CloudStorage/Dropbox-Dropbox/Chase Seibert/Shared Cowork Projects/Core Activity Score"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/Library/CloudStorage/Dropbox-Personal/Projects/zoom-join"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/analytics-server"]
 trust_level = "trusted"
 
 [projects."/Users/cseibert/projects/blog"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/projects/ics-combine"]
+[projects."/Users/cseibert/projects/book-recommendations-prototype"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/calorie-tracker"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/chase-sidekick"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/clipboard-markup"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/codex"]
 trust_level = "trusted"
 
 [projects."/Users/cseibert/projects/context-vault"]
@@ -81,80 +303,110 @@ trust_level = "trusted"
 [projects."/Users/cseibert/projects/crontab-manager"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/Documents/Video Buffer"]
+[projects."/Users/cseibert/projects/demo-to-highlights"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/Documents/Codex Global"]
+[projects."/Users/cseibert/projects/demo-video-maker"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/devbox"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/facepile"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/foundation-model-playground"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/ics-combine"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/image-text-recognition"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/miclog-desktop"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/miclog-mobile"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/remote-agent"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/remote-agent-ios"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/rsscombine"]
 trust_level = "trusted"
 
 [projects."/Users/cseibert/projects/sideline-save"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/Documents/Codex/2026-05-19/apple-notes-sycn-stuck-macos"]
+[projects."/Users/cseibert/projects/xlt-offsite-ai-video"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/Documents/Codex/2026-05-19/files-mentioned-by-the-user-analytics"]
+[projects."/private/var/folders/h6/cmr0052j15n71jgk_wx56qsw0000gn/T/remote-agent-rollout-brnzud22"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/projects/analytics-server"]
+[projects."/Users/cseibert/projects/devbox/.local-state/spaces-recorder-rserver"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/.codex"]
+[projects."/Users/cseibert/Library/CloudStorage/Dropbox-Personal/Projects/IP 2026-2027 Name Game : Who's Who"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/.dotfiles"]
+[projects."/Users/cseibert/projects/make-run"]
 trust_level = "trusted"
 
-[projects."/Users/cseibert/Documents/Codex/2026-05-20/is-the-dropbox-mcp-authenticated"]
+[projects."/Users/cseibert/projects/name-drop"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/apple-mail-zoom"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/projects"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/chase-apps"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/dropbox-backup"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/markdown-preview"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/team-productivity-dx"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/battery-status"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/cookbook"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/strength-training"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/baseball-videos"]
+trust_level = "trusted"
+
+[projects."/Users/cseibert/projects/codex-session-manager"]
 trust_level = "trusted"
 
 [sandbox_workspace_write]
 network_access = true
 writable_roots = [
-  "~/projects/chase-sidekick/.agents",
-  "/Users/cseibert/.codex/worktrees",
-  "~/projects/chase-sidekick/memory",
-#  "~/Library/CloudStorage/Dropbox-Dropbox/Chase Seibert/Shared Markdown/sidekick-memory",
+    "~/projects/chase-sidekick/.agents",
+    "/Users/cseibert/.codex/worktrees",
+    "~/projects/chase-sidekick/memory",
 ]
 
-[permissions.sidekick.filesystem]
-"~/projects/chase-sidekick" = "write"
-"~/projects/chase-sidekick/.env" = "read"
-"~/projects/chase-sidekick/.agents" = "write"
-"~/projects/chase-sidekick/AGENTS.override.md" = "read"
-"~/projects/chase-sidekick/CLAUDE.local.md" = "read"
-"~/projects/chase-sidekick/settings.local.json" = "read"
-"~/projects/chase-sidekick/local" = "read"
-"~/projects/chase-sidekick/memory" = "read"
-"/Users/cseibert/.codex/worktrees" = "write"
+[shell_environment_policy.set]
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "9230e2bd8b24b7ac7a0ba6774c64bf0d78ecdabbdd91d0ed627b02a587bae2df"
 
-[mcp_servers.Dash]
-url = "https://mcp.dropbox.com/dash"
-
-[mcp_servers.dropboxer]
-url = "https://dcd-mcp.dropboxer.net/mcp"
-
-[mcp_servers.pagerduty]
-url = "https://mcp.pagerduty.com/mcp"
-
-[mcp_servers.pagerduty.env_http_headers]
-Authorization = "PAGERDUTY_MCP_AUTHORIZATION"
-
-[mcp_servers.sentry]
-url = "https://mcp.sentry.dev/mcp"
-
-[mcp_servers.dropbox-mcp]
-url = "https://mcp.dropbox.com/mcp"
-enabled = true
+[[skills.config]]
+enabled = false
+name = "sentry:sentry"
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4
-
-[hooks.state]
-
-[hooks.state."/Users/cseibert/projects/chase-sidekick/.codex/hooks.json:session_start:0:0"]
-trusted_hash = "sha256:f9a252261e5c2de429b424de4ba5bbbab284b4d533f06a25f0d180fec944d222"
-
-[[skills.config]]
-name = "sentry:sentry"
-enabled = false

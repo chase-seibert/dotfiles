@@ -2,8 +2,13 @@
 
 Use these instructions when creating or scaffolding a new project.
 
+For Shared Cowork Projects, also load and follow
+`/Users/cseibert/.codex/docs/create-shared-cowork-project.md`.
+
 ## Baseline Files
 
+- Create new project directories under `/Users/cseibert/projects`.
+- Codex projectless/generated work is redirected from `/Users/cseibert/Documents/Codex` to `/Users/cseibert/projects/codex` by symlink; move durable coding projects out to `/Users/cseibert/projects/<project-name>`.
 - Create a project-local `AGENTS.md`.
 - Create a `README.md` for human readers.
 - Create a root `CHANGELOG.md`.
@@ -37,6 +42,45 @@ For coding projects, include targets for the common local workflow where applica
 - `clean`
 
 Prefer targets that execute real project commands over placeholder targets.
+
+For new iOS SwiftUI projects, follow `/Users/cseibert/.codex/docs/ios-development.md`
+and include Makefile targets for both simulator and physical-device workflows.
+Include at least:
+
+- `sim-build`
+- `sim-launch`
+- `phone-build`
+- `phone-install`
+- `phone-launch`
+- `phone-deploy`
+
+Default the physical device to Chase's iPhone 17 Pro. Use the configured Apple
+Personal Team for signing, not the default deploy team:
+
+```make
+DEVICE_ID ?= 00008150-000E41422E40401C
+DEVELOPMENT_TEAM ?= 96NAC4VTEN
+```
+
+Physical-device builds must use automatic signing:
+
+- `CODE_SIGN_STYLE=Automatic`
+- `DEVELOPMENT_TEAM=$(DEVELOPMENT_TEAM)`
+- `-allowProvisioningUpdates`
+- `-allowProvisioningDeviceRegistration`
+
+Build physical-device apps with:
+
+```make
+-destination 'platform=iOS,id=$(DEVICE_ID)'
+```
+
+Install and launch physical-device apps with:
+
+```make
+xcrun devicectl device install app --device $(DEVICE_ID) "$(DERIVED_DATA)/Build/Products/Debug-iphoneos/$(APP_NAME).app"
+xcrun devicectl device process launch --device $(DEVICE_ID) --terminate-existing $(BUNDLE_ID)
+```
 
 ## Documentation
 

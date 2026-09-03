@@ -1,0 +1,3 @@
+interface:
+  display_name: "Free macOS Disk Space"
+  short_description: "Audit and reclaim Mac disk space safely"

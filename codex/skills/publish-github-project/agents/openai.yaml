@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publish GitHub Project"
+  short_description: "Publish a local project to personal GitHub"
+  default_prompt: "Use $publish-github-project to publish this local project to my personal GitHub account."

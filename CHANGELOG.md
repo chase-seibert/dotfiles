@@ -9,6 +9,14 @@ Do not add a "Unreleashed" section; just keep a running list by year.
 
 ## 2026
 
+- 2026-09-02: Refreshed Codex settings and domain docs, including app naming,
+  transcript corrections, shared cowork projects, native Mac behavior, and
+  iOS/macOS persistence and deployment defaults.
+- 2026-09-02: Added disk-space cleanup, offline name-game, and personal GitHub
+  publishing skills; removed seven untracked work-specific skills locally
+  before publishing the remaining changes.
+- 2026-09-02: Added Git AI shell/Git integration, GitHub CLI credential
+  helpers, and the existing Codex cost report.
 - Moved Codex domain instruction files from `codex/agents` to `codex/docs` and
   updated the user-level index, symlink setup, and ignore allowlist.
 - Linked the full Codex docs and skills directories into `~/.codex` so new

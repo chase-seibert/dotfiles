@@ -7,7 +7,9 @@ exactly as written.
 - General engineering defaults: `/Users/cseibert/.codex/docs/general-engineering.md`
 - macOS app development: `/Users/cseibert/.codex/docs/macos-development.md`
 - iOS app development: `/Users/cseibert/.codex/docs/ios-development.md`
+- App and product naming: `/Users/cseibert/.codex/docs/app-naming.md`
 - Work and collaboration: `/Users/cseibert/.codex/docs/work.md`
+- Common transcript errors: `/Users/cseibert/.codex/docs/common-transcript-errors.md`
 
 ## How To Use This Index
 
