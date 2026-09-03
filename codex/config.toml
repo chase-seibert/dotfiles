@@ -11,7 +11,7 @@ web_search = "live"
 [desktop]
 ambient-suggestions-enabled = true
 appearanceDiffMarkerStyle = "color"
-appearanceTheme = "system"
+appearanceTheme = "dark"
 codeFontSize = 13
 conversationDetailMode = "STEPS_COMMANDS"
 default-service-tier = "priority"

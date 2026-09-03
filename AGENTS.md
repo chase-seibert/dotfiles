@@ -2,6 +2,8 @@
 
 ## Project Overview
 
+Also load `/Users/cseibert/.codex/AGENTS.md` and the relevant domain files.
+
 This repository contains personal dotfiles and bootstrap scripts. Files are
 stored in the repo without a leading dot where possible, then linked into the
 home directory by `symlinks.sh`.
@@ -13,7 +15,7 @@ home directory by `symlinks.sh`.
 - `mac.sh`, `linux.sh`: platform bootstrap scripts that install packages and
   shell integrations.
 - `vim.sh`: Vim dependency and submodule setup.
-- `bashrc`, `bash_profile`, `gitconfig`, `tmux.conf`, `vimrc`: dotfile source
+- `bashrc`, `bash_profile`, `zshrc`, `gitconfig`, `tmux.conf`, `vimrc`: dotfile source
   files linked into the home directory.
 - `bin/`: helper scripts intended to be on the user's path.
 - `etc/`: launchd plist files used by the remote clipboard helpers.
@@ -24,7 +26,11 @@ home directory by `symlinks.sh`.
 
 ## Commands
 
-- Install symlinks: `./symlinks.sh`
+Prefer the Makefile targets for common operations.
+
+- Check shell configuration and scripts: `make check`
+- Install symlinks: `make link`
+- Install only the Zsh config, preserving any existing file: `make link-zsh`
 - Set up Vim dependencies and submodules: `./vim.sh`
 - Run macOS bootstrap: `./mac.sh`
 - Run Linux bootstrap: `./linux.sh`

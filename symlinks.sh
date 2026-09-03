@@ -3,6 +3,11 @@ set -euo pipefail
 
 dotfiles_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
+if [ "$#" -gt 1 ] || { [ "$#" -eq 1 ] && [ "$1" != "--zsh-only" ]; }; then
+  echo "Usage: $0 [--zsh-only]" >&2
+  exit 64
+fi
+
 backup_and_link() {
   local source_path=$1
   local destination_path=$2
@@ -44,6 +49,11 @@ backup_and_link() {
 
   ln -s "$source_path" "$destination_path"
 }
+
+backup_and_link "$dotfiles_dir/zshrc" "$HOME/.zshrc"
+if [ "${1:-}" = "--zsh-only" ]; then
+  exit 0
+fi
 
 backup_and_link "$dotfiles_dir/bashrc" "$HOME/.bashrc"
 backup_and_link "$dotfiles_dir/bash_profile" "$HOME/.bash_profile"

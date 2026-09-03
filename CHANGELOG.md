@@ -9,6 +9,11 @@ Do not add a "Unreleashed" section; just keep a running list by year.
 
 ## 2026
 
+- 2026-09-02: Added a Zsh config preserving personal aliases, prompt, PATH,
+  and autojump, with native completion and Chrome profiles created on demand.
+  Omitted SCM Breeze, work helpers, Ruby startup, PostgreSQL aliases, PHP paths,
+  and the obsolete Heroku path. Added a shell audit,
+  Makefile checks, and a backup-preserving Zsh-only link command.
 - 2026-09-02: Refreshed Codex settings and domain docs, including app naming,
   transcript corrections, shared cowork projects, native Mac behavior, and
   iOS/macOS persistence and deployment defaults.

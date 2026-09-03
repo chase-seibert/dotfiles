@@ -33,7 +33,23 @@ Run the platform bootstrap script to install stuff:
 ./linux.sh
 ```
 
-Reload the shell profile:
+Start Zsh to try the new configuration (exit to return to the current shell):
+
+```sh
+zsh
+```
+
+To install only Zsh configuration without relinking other dotfiles:
+
+```sh
+make link-zsh
+```
+
+This backs up any existing `~/.zshrc` and links it to `~/.dotfiles/zshrc`.
+It does not change the account's default login shell. Once ready, you can run
+`chsh -s /bin/zsh` yourself and open a new terminal.
+
+If continuing to use Bash, reload its profile:
 
 ```bash
 source ~/.bash_profile
@@ -45,6 +61,7 @@ source ~/.bash_profile
 
 - `bashrc` to `~/.bashrc`
 - `bash_profile` to `~/.bash_profile`
+- `zshrc` to `~/.zshrc`
 - `git-completion.bash` to `~/.git-completion.bash`
 - `gitconfig` to `~/.gitconfig`
 - `tmux.conf` to `~/.tmux.conf`
@@ -64,7 +81,9 @@ before new links are created.
 
 ## Repo Map
 
-- `bashrc`, `bash_profile`: shell setup.
+- `bashrc`, `bash_profile`: existing Bash setup.
+- `zshrc`: Zsh setup, migrated aliases, and optional installed integrations.
+- `SHELL-AUDIT.md`: migration inventory, recommendations, and rollback steps.
 - `gitconfig`, `git-completion.bash`: Git defaults and completion.
 - `tmux.conf`: tmux configuration.
 - `vimrc`, `vim/`: Vim configuration, syntax files, colors, and bundled
@@ -91,6 +110,31 @@ before running on a fresh host.
 
 Some package names are historical, especially in `mac.sh`, so Homebrew commands
 may need cleanup on a modern machine.
+
+## Zsh Configuration
+
+`zshrc` runs for interactive login and non-login shells. It initializes
+Homebrew, preserves personal PATH entries, uses native Zsh completion,
+and loads autojump when installed. It keeps the personal Git aliases,
+colored prompt, terminal-title helper, and Chrome demo function.
+No framework or new package is required.
+
+SCM Breeze, work helpers and Dropbox PATH overrides, Ruby manager startup,
+PostgreSQL aliases, PHP paths, and the obsolete Heroku path are omitted.
+See [the audit](SHELL-AUDIT.md) for the final inventory and migration decisions.
+It does not source `.bashrc` or `.bash_profile`. Standalone noninteractive
+Zsh processes do not load these settings; scripts should set their own
+environment or inherit it from an interactive shell.
+
+After migrating from the earlier configuration, open a new terminal window.
+Sourcing the edited file does not remove aliases, functions, or environment
+variables that were already loaded. Other inherited PATH entries are preserved;
+the Dropbox override directory is filtered out because macOS also adds it
+through `/etc/paths`.
+
+History uses `~/.zsh_history` (or `$ZDOTDIR/.zsh_history`), keeps 10,000
+entries, appends commands as they run, and ignores immediate duplicates and
+commands beginning with a space. Bash history is left in place.
 
 ## Codex Files
 
@@ -136,7 +180,7 @@ backup_and_link "$dotfiles_dir/inputrc" "$HOME/.inputrc"
 Useful checks after editing:
 
 ```bash
-bash -n symlinks.sh mac.sh linux.sh vim.sh
+make check
 python3 -m py_compile bin/*.py
 ```
 
