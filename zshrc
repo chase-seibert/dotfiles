@@ -41,6 +41,7 @@ SAVEHIST=10000
 setopt APPEND_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE
 
 # Autoload the native Zsh completion system, including Homebrew completions.
+[[ -d $HOME/.autojump/functions ]] && fpath=("$HOME/.autojump/functions" "${fpath[@]}")
 if [[ -n $HOMEBREW_PREFIX && -d $HOMEBREW_PREFIX/share/zsh/site-functions ]]; then
   fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" "${fpath[@]}")
 fi
@@ -64,7 +65,6 @@ fi
 alias g='grep -rn --color'
 alias tmux='tmux -u'
 alias ll='ls -l'
-alias hb='hub browse'
 alias python=python3
 alias gfo='git fetch origin'
 alias gb='git branch'

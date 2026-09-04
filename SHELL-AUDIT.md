@@ -1,7 +1,8 @@
 # Bash to Zsh audit
 
-Audited September 2, 2026. Updated with your final choices: keep autojump;
-omit SCM Breeze, work helpers, Ruby startup, PostgreSQL aliases, and PHP setup.
+Audited September 2, 2026. Package choices updated September 4, 2026:
+keep autojump; omit Hub, rbenv, ruby-build, SCM Breeze, work helpers,
+Ruby startup, PostgreSQL aliases, and PHP setup.
 
 The configuration lives in `~/.dotfiles/zshrc`, linked from `~/.zshrc`.
 Your original local Zsh file is preserved as
@@ -12,7 +13,7 @@ Your original local Zsh file is preserved as
 | Area | Kept in Zsh |
 | --- | --- |
 | Everyday helpers | `g` for recursive grep, `ll`, `tmux -u`, `python=python3`, and `EDITOR=vi`, with Bash-style keyboard editing. |
-| Git aliases | `gfo`, `gb`, `ga`, `gco`, `gs`, `gd`, `gc`, `gps`, `gf`, and `hb` (`hub browse`). Git is no longer wrapped by SCM Breeze. |
+| Git aliases | `gfo`, `gb`, `ga`, `gco`, `gs`, `gd`, `gc`, `gps`, and `gf`. Git is no longer wrapped by SCM Breeze. |
 | PATH | Homebrew, existing `/usr/local/bin`, `/usr/local/sbin`, `.local/bin`, `.dotfiles/bin`, and `.git-ai/bin`; duplicate entries are removed. |
 | Prompt and colors | Yellow user/host, red current directory, and macOS `ls` colors. Linux uses `ls --color=auto`. |
 | Completion | Native Zsh completion, including installed Homebrew completions. |
@@ -26,7 +27,8 @@ Your original local Zsh file is preserved as
 - SCM Breeze loading, numbered Git shortcuts, and its command wrappers.
 - `dev` / `$USER-dbx` and `/opt/dropbox-override/bin`. The latter is also
   filtered out after Homebrew initialization because `/etc/paths` adds it.
-- Both rbenv initialization and chruby loading/Ruby 3.1.2 selection.
+- Hub installation and the `hb` alias.
+- rbenv, ruby-build, and all Ruby manager initialization/version selection.
 - PostgreSQL `start-pg` and `stop-pg` aliases.
 - The PHP 7.4 PATH entry and all PHP-specific setup.
 - The obsolete `/usr/local/heroku/bin` path, which was absent on this Mac.
@@ -50,8 +52,9 @@ creates one directory per invocation. Those profiles remain in the OS temporary
 directory after Chrome closes.
 
 Keep the remaining helpers if you use them. The `tmux` alias is retained, but
-tmux was not on PATH during the audit. `hub` was installed and remains available
-through `hb`. No additional framework or dependency is needed for this setup.
+tmux was not on PATH during the original audit. Hub and Ruby manager support
+were removed on September 4; neither Hub nor rbenv was installed on this Mac.
+No additional framework or dependency is needed for this setup.
 
 Native completion uses `compinit -i`, which ignores insecure completion
 directories. The installed completion audit passed. See the

@@ -9,6 +9,16 @@ Do not add a "Unreleashed" section; just keep a running list by year.
 
 ## 2026
 
+- 2026-09-04: Removed Hub and the `hb` aliases entirely. Removed optional
+  rbenv/ruby-build setup guidance and recorded that these tools must not
+  be installed by bootstrap. Updated the shell audit to match.
+- 2026-09-04: Reduced bootstrap packages to Autojump; removed ag, iTerm2,
+  LibreOffice, tmux, bash-completion, OmniFocus, and SCM Breeze installs.
+  Added an Autojump-only target with a verified Python 3 source fallback.
+  Made Hub optional and documented the GitHub CLI alternative. Removed the
+  conflicting Ruby 2.5.1/rbenv and 3.1.2/chruby defaults; documented optional
+  project-specific Ruby setup. Guarded Bash Homebrew startup, loaded Autojump
+  directly, removed recursive Bash sourcing, and checked every shell file.
 - 2026-09-02: Added a Zsh config preserving personal aliases, prompt, PATH,
   and autojump, with native completion and Chrome profiles created on demand.
   Omitted SCM Breeze, work helpers, Ruby startup, PostgreSQL aliases, PHP paths,

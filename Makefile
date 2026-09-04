@@ -1,7 +1,7 @@
-.PHONY: check link link-zsh
+.PHONY: check link link-zsh autojump
 
 check:
-	bash -n symlinks.sh mac.sh linux.sh vim.sh bashrc bash_profile
+	@for script in symlinks.sh mac.sh linux.sh autojump.sh vim.sh bashrc bash_profile; do bash -n "$$script" || exit; done
 	zsh -n zshrc
 
 link:
@@ -9,3 +9,6 @@ link:
 
 link-zsh:
 	./symlinks.sh --zsh-only
+
+autojump:
+	bash ./autojump.sh

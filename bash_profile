@@ -1,6 +1,12 @@
 unamestr=`uname`
 
-eval $(/opt/homebrew/bin/brew shellenv)
+for _dotfiles_brew in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+    if [ -x "$_dotfiles_brew" ]; then
+        eval "$("$_dotfiles_brew" shellenv)"
+        break
+    fi
+done
+unset _dotfiles_brew
 
 if [[ $unamestr == 'Linux' ]]; then
 
@@ -18,32 +24,33 @@ if [[ $unamestr == 'Linux' ]]; then
         export SSH_AUTH_SOCK=$SOCK
     fi
 
-    source /usr/share/autojump/autojump.bash
-
 elif [[ $unamestr == 'Darwin' ]]; then
 
     export CLICOLOR=1
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-      . $(brew --prefix)/etc/bash_completion
-    fi
     export PATH=/usr/local/bin:$PATH
 
     if [ -f ~/.git-completion.bash ]; then
       . ~/.git-completion.bash
     fi
 
-    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
 fi
 
-# before aliases so that I can over-ride "g"
-# [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+# Load Autojump directly; no separate Bash completion package is required.
+for _dotfiles_autojump in \
+    "$HOME/.autojump/share/autojump/autojump.bash" \
+    "${HOMEBREW_PREFIX:-/opt/homebrew}/share/autojump/autojump.bash" \
+    /usr/share/autojump/autojump.bash /usr/local/share/autojump/autojump.bash; do
+    if [ -r "$_dotfiles_autojump" ]; then
+        source "$_dotfiles_autojump"
+        break
+    fi
+done
+unset _dotfiles_autojump
 
 alias g="grep -rn --color"
 alias tmux="tmux -u"
 alias ll="ls -l"
-alias hb="hub browse"
 function name {
     echo -ne "\033]0;"$*"\007"
 }
@@ -56,15 +63,12 @@ PATH=$PATH:/usr/local/heroku/bin
 PS1='\[\e[33;1m\]\u@\h: \[\e[31m\]\W\[\e[0m\]$ '
 
 export PATH="/usr/local/sbin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=/opt/dropbox-override/bin:$PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="$HOME/.local/bin:$PATH"
 
 alias start-pg="pg_ctl -D /opt/homebrew/var/postgres start"
 alias stop-pg="pg_ctl -D /opt/homebrew/var/postgres stop"
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-chruby ruby-3.1.2
 export EDITOR=vi
 alias gfo="git fetch origin"
 alias gb="git branch"

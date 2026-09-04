@@ -25,7 +25,7 @@ Set up Vim plugins and Python requirements:
 ./vim.sh
 ```
 
-Run the platform bootstrap script to install stuff:
+Run the platform bootstrap script (macOS also loads the remote clipboard helpers):
 
 ```bash
 ./mac.sh
@@ -96,20 +96,57 @@ before new links are created.
 - `vim.sh`: installs Vim Python requirements and updates submodules.
 - `mac.sh`: macOS package and shell bootstrap.
 - `linux.sh`: Linux package and shell bootstrap.
+- `autojump.sh`: install or update Autojump; supports macOS without Homebrew.
 
 ## Bootstrap Scripts
 
 These scripts are intentionally direct and mutate the local machine. Read them
 before running on a fresh host.
 
-- `mac.sh` installs Homebrew, packages, casks, Ruby via `rbenv`, launchd
-  clipboard helpers, and `scm_breeze`.
-- `linux.sh` installs packages with `apt-get` and installs `scm_breeze`.
+- `mac.sh` installs or updates Autojump and loads the existing launchd clipboard
+  helpers. Homebrew itself is not installed automatically.
+- `linux.sh` refreshes the apt package index and installs the distribution's
+  current Autojump package.
 - `vim.sh` installs `vim/requirements.txt` with `sudo pip`, then initializes and
   updates Git submodules.
 
-Some package names are historical, especially in `mac.sh`, so Homebrew commands
-may need cleanup on a modern machine.
+### Package preferences
+
+Install Autojump. Do not install Silver Searcher (`ag`), iTerm2, LibreOffice,
+tmux, the `bash-completion` package, OmniFocus, SCM Breeze, Hub, rbenv, or
+ruby-build as part of bootstrap.
+SCM Breeze is also removed from Bash startup. Existing tmux configuration and
+optional `ag` support in Vim can remain for machines where those tools already
+exist; bootstrap does not install or uninstall them.
+
+Hub and its `hb` alias are removed. Do not add Ruby version managers or
+Ruby build tooling to the dotfiles. Leave the macOS system Ruby in place;
+bootstrap does not install or select a Ruby version.
+
+### Autojump
+
+To install only Autojump without loading clipboard services:
+
+```bash
+make autojump
+# Without make / Xcode Command Line Tools:
+bash ./autojump.sh
+```
+
+With Homebrew already installed, this refreshes its index and installs or
+upgrades Autojump to the current stable formula. Without Homebrew, it uses
+Python 3 and the upstream stable source archive, verifies its SHA-256 digest,
+and installs into `~/.autojump`. The fallback is pinned to **22.5.3**, the latest
+stable release verified on 2026-09-04. Update both the tag and digest in
+`autojump.sh` when adopting a newer upstream stable release. Upstream's Python
+launcher is adjusted to use `python3` on current macOS.
+
+Both shell profiles load Autojump when present. Open a new terminal, visit
+some directories normally, then use `j partial-directory-name` to jump back.
+Verify with `autojump --version` and `type j`.
+
+Sources: [Autojump](https://github.com/wting/autojump) and the
+[current Homebrew formula](https://formulae.brew.sh/formula/autojump).
 
 ## Zsh Configuration
 
